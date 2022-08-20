@@ -5,17 +5,17 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 4f;
-    [SerializeField] private float speedRunning = 7f;
-    [SerializeField] private float speedAttacking = 0.1f;
+    [SerializeField] private float speed = 3f;
+    [SerializeField] private float speedRunning = 6f;
+    //[SerializeField] private float speedAttacking = 0.1f;
     private int isWalkingHash;
     private int isRunningHash;
-    private int atk1;
-    private int atk2;
-    private int atk3;
-    private int atk4;
+    //private int atk1;
+    //private int atk2;
+    //private int atk3;
+    //private int atk4;
     private bool isRunning = false;
-    private bool isAttacking = false;
+    //private bool isAttacking = false;
 
     public CharacterController controller;
     public FixedJoystick joystick;
@@ -28,10 +28,10 @@ public class PlayerMovement : MonoBehaviour
         isWalkingHash = Animator.StringToHash("isWalking");
         isRunningHash = Animator.StringToHash("isRunning");
 
-        atk1 = Animator.StringToHash("Attack01_SwordAndShiled");
-        atk2 = Animator.StringToHash("Attack02_SwordAndShiled");
-        atk3 = Animator.StringToHash("Attack03_SwordAndShiled");
-        atk4 = Animator.StringToHash("Attack04_SwordAndShiled");
+        //atk1 = Animator.StringToHash("Attack01_SwordAndShiled");
+        //atk2 = Animator.StringToHash("Attack02_SwordAndShiled");
+        //atk3 = Animator.StringToHash("Attack03_SwordAndShiled");
+        //atk4 = Animator.StringToHash("Attack04_SwordAndShiled");
     }
 
     void Update()
@@ -39,10 +39,10 @@ public class PlayerMovement : MonoBehaviour
         float horizontal = joystick.Horizontal;
         float vertical = joystick.Vertical;
 
-        if (horizontal != 0 && vertical != 0)
-        {
-            isAttacking = IsAttacking(animator.GetCurrentAnimatorStateInfo(0).shortNameHash);
-        }
+        //if (horizontal != 0 && vertical != 0)
+        //{
+        //    isAttacking = IsAttacking(animator.GetCurrentAnimatorStateInfo(0).shortNameHash);
+        //}
 
 
         Vector3 direction = new Vector3(horizontal, 0, vertical);
@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //float targetAngle = 
             if(isRunning) controller.Move(direction * speedRunning * Time.deltaTime);
-            else if(isAttacking) controller.Move(direction * speedAttacking * Time.deltaTime);
+            //else if(isAttacking) controller.Move(direction * speedAttacking * Time.deltaTime);
             else controller.Move(direction * speed * Time.deltaTime);
             transform.rotation = Quaternion.LookRotation(direction);
             
@@ -67,16 +67,16 @@ public class PlayerMovement : MonoBehaviour
         } else animator.SetBool(isRunningHash, false);
     }
 
-    private bool IsAttacking(int shortNameHash)
-    {
+    //private bool IsAttacking(int shortNameHash)
+    //{
 
-        if (shortNameHash == atk1) return true;
-        else if (shortNameHash == atk2) return true;
-        else if (shortNameHash == atk3) return true;
-        else if (shortNameHash == atk4) return true;
+    //    if (shortNameHash == atk1) return true;
+    //    else if (shortNameHash == atk2) return true;
+    //    else if (shortNameHash == atk3) return true;
+    //    else if (shortNameHash == atk4) return true;
 
-        return false;
-    }
+    //    return false;
+    //}
 
 
     public void Run(bool _isRunning)

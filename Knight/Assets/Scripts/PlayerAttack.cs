@@ -46,14 +46,14 @@ public class PlayerAttack : MonoBehaviour
     {
         this.isHolding = isHolding;
 
-        if (comboStep == 0) Attack();
+        //print("holding");
     }
 
     private void CheckMissingEventError()
     {
         for (int i = 0; i < 4; i++)
         {
-            if (checkUnityError[i] > 4)
+            if (checkUnityError[i] > 3)
             {
                 ResetCombo();
                 checkUnityError[i] = 0;
