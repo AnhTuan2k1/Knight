@@ -8,11 +8,11 @@ class PlayerJump : MonoBehaviour
     [SerializeField] private Animator playerAni;
     [SerializeField] private CharacterController controller;
     [SerializeField] private float jumpSpeed = 9f;
-    [SerializeField] private float spinJumpSpeed = 9f;
+    [SerializeField] private float spinJumpSpeed = 16f;
     [SerializeField] private float gravity = 9.8f;
     private Vector3 direction = Vector3.zero;
-    private const string normalJump = "JumpFull_Normal_RM_SwordAndShield";
-    private const string spinJump = "JumpFull_Spin_RM_SwordAndShield";
+    private static string normalJump = "JumpFull_Normal_RM_SwordAndShield";
+    private static string spinJump = "JumpFull_Spin_RM_SwordAndShield";
     private bool isSpinJump = false;
     private bool spinJumpPossible = false;
     private bool isJump = false;
@@ -31,11 +31,11 @@ class PlayerJump : MonoBehaviour
         else if (isJump) NormalJump();
     }
 
+
     public void NormalJump()
     {
         if (controller.isGrounded)
         {
-            print("jump");
             playerAni.Play(normalJump);
 
             direction.y = jumpSpeed;
@@ -46,11 +46,10 @@ class PlayerJump : MonoBehaviour
     {
         if (!controller.isGrounded)
         {
-            print("spin jump");
             playerAni.Play(spinJump);
 
             direction.y = spinJumpSpeed;
-            //CanNotSpinJump();
+            CanNotSpinJump();
         }
     }
 

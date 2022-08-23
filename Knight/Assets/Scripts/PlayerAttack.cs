@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
     {
         for (int i = 0; i < 4; i++)
         {
-            if (checkUnityError[i] > 3)
+            if (checkUnityError[i] > 2)
             {
                 ResetCombo();
                 checkUnityError[i] = 0;

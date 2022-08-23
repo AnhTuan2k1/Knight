@@ -15,10 +15,11 @@ public class WeaponCollider : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("enter " + other.gameObject.tag);
+        //print("weapon collider");
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<Character>().TakeDamage(damage);
+            //print("enemy collider");
+            other.gameObject.GetComponent<Enemy>().TakeDamage(damage, gameObject);
         }
     }
 
