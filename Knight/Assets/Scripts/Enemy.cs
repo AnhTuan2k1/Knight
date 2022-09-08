@@ -12,6 +12,10 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual float SightRange() => 30;
     public virtual float AttackRange() => 2.5f;
+    /// <summary>
+    /// TimeBetweenAttacks should be at least 2 seconds
+    /// </summary>
+    /// <returns></returns>
     public virtual float TimeBetweenAttacks() => 5;
     public abstract void AttackAni();
     public abstract void MoveAni();

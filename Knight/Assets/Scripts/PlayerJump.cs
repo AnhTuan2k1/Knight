@@ -21,7 +21,10 @@ class PlayerJump : MonoBehaviour
     private void Update()
     {
         Jump();
-        direction.y -= gravity * Time.deltaTime;
+
+        if (direction.y > 1)
+            direction.y -= gravity * Time.deltaTime;
+        else direction.y = 0;
         controller.Move(direction * Time.deltaTime);
     }
 

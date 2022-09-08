@@ -134,20 +134,20 @@ public class EnemyAi : MonoBehaviour
         isAttacking = false;
     }
 
-    IEnumerator Attack()
-    {
-        enemy.VisibleAlert();       
-        yield return new WaitForSeconds(1);
-        enemy.AttackAni();
+    //IEnumerator Attack()
+    //{
+    //    enemy.VisibleAlert();       
+    //    yield return new WaitForSeconds(1);
+    //    enemy.AttackAni();
 
       
-        isAttacking = false;
-        alreadyAttacked = true;
-        enemy.InvisibleAlert();
-        Invoke(nameof(ResetAttack), timeBetweenAttacks);
-        ///End of attack code
+    //    isAttacking = false;
+    //    alreadyAttacked = true;
+    //    enemy.InvisibleAlert();
+    //    Invoke(nameof(ResetAttack), timeBetweenAttacks);
+    //    ///End of attack code
 
-    }
+    //}
 
     private void SearchWalkPoint()
     {

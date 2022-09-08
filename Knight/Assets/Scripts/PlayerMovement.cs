@@ -1,3 +1,4 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -18,8 +19,9 @@ public class PlayerMovement : MonoBehaviour
     //private bool isAttacking = false;
 
     public CharacterController controller;
-    public FixedJoystick joystick;
+    public VariableJoystick joystick;   
     public Animator animator;
+    [SerializeField] private CinemachineVirtualCamera cam;
 
     private void Start()
     {
@@ -35,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void Update()
-    {        
+    {
         float horizontal = joystick.Horizontal;
         float vertical = joystick.Vertical;
 
@@ -50,13 +52,16 @@ public class PlayerMovement : MonoBehaviour
        
         if (direction.magnitude > 0.1f)
         {
+            // adjust movement vector follow camera's direction         
+            direction = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.up) * direction;
+
             //float targetAngle = 
-            if(isRunning) controller.Move(direction * speedRunning * Time.deltaTime);
+            if (isRunning) controller.Move(direction * speedRunning * Time.deltaTime);
             //else if(isAttacking) controller.Move(direction * speedAttacking * Time.deltaTime);
             else controller.Move(direction * speed * Time.deltaTime);
             transform.rotation = Quaternion.LookRotation(direction);
-            
-            if(!isWalking) animator.SetBool(isWalkingHash, true);
+
+            if (!isWalking) animator.SetBool(isWalkingHash, true);
         }
         else if(isWalking) animator.SetBool(isWalkingHash, false);
 

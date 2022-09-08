@@ -5,6 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Dock Thing.unity
+    guid: f4fc660ad7cf6eb4eb8cd6d109f7608e
+  - enabled: 0
+    path: Assets/Scenes/SciFi_Industrial_SampleLayout.unity
+    guid: b2fa8882363c4644b93046de18bcbf19
   - enabled: 0
     path: Assets/Scenes/Scene1.unity
     guid: 23eafccbc3edc384b8a0a5776261f614
