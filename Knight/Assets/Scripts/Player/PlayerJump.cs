@@ -8,7 +8,7 @@ class PlayerJump : MonoBehaviour
     [SerializeField] private Animator playerAni;
     [SerializeField] private CharacterController controller;
     [SerializeField] private float jumpSpeed = 9f;
-    [SerializeField] private float spinJumpSpeed = 16f;
+    [SerializeField] private float spinJumpSpeed = 13f;
     [SerializeField] private float gravity = 9.8f;
     private Vector3 direction = Vector3.zero;
     private static string normalJump = "JumpFull_Normal_RM_SwordAndShield";
@@ -20,20 +20,17 @@ class PlayerJump : MonoBehaviour
 
     private void Update()
     {
-        Jump();
+        if (isSpinJump) SpinJump();
+        else if (isJump) NormalJump();
 
         if (direction.y > 1)
-            direction.y -= gravity * Time.deltaTime;
+        {
+            controller.Move(direction * Time.deltaTime);
+            direction.y -= gravity * Time.deltaTime;           
+        }          
         else direction.y = 0;
-        controller.Move(direction * Time.deltaTime);
+      
     }
-
-    public void Jump()
-    {
-        if (isSpinJump) SpinJump(); 
-        else if (isJump) NormalJump();
-    }
-
 
     public void NormalJump()
     {
@@ -78,4 +75,3 @@ class PlayerJump : MonoBehaviour
         spinJumpPossible = true;
     }
 }
-

@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public VariableJoystick joystick;   
     public Animator animator;
+    public Vector3 direction;
     [SerializeField] private CinemachineVirtualCamera cam;
 
     private void Start()
@@ -47,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         //}
 
 
-        Vector3 direction = new Vector3(horizontal, 0, vertical);
+        direction = new Vector3(horizontal, 0, vertical);
         bool isWalking = animator.GetBool(isWalkingHash);
        
         if (direction.magnitude > 0.1f)

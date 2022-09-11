@@ -6,15 +6,85 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator playerAni;
     [SerializeField] private WeaponCollider weaponCollider;
-    bool isHolding = false;
-    bool comboPossible;
-    int comboStep;
+    [SerializeField] bool isHolding = false;
+    [SerializeField] bool comboPossible = false;
+    [SerializeField] bool isAtacking = false;
+    [SerializeField] int comboStep = 0;
+    [SerializeField] float timeAtk = 0.5f;
     int[] checkUnityError = { 0, 0, 0, 0 };
 
     const string ATK1 = "Attack01_SwordAndShiled";
     const string ATK2 = "Attack02_SwordAndShiled";
     const string ATK3 = "Attack03_SwordAndShiled";
     const string ATK4 = "Attack04_SwordAndShiled";
+
+    public void HoldingBtnAtk(bool isHolding)
+    {
+        this.isHolding = isHolding;
+    }
+
+    public void BtnAtk()
+    {
+        if (!isAtacking && comboStep == 0) 
+        {
+            playerAni.Play(ATK1);
+            StartCoroutine(ComboAtk());
+            comboStep = 1;
+        }
+
+        else if (isAtacking)
+        {
+            comboPossible = true;
+        }
+    }
+
+    private void Atk()
+    {
+        if (comboStep == 1)
+        {
+            playerAni.Play(ATK2);
+            StartCoroutine(ComboAtk());
+            comboStep = 2;
+        }
+        else if (comboStep == 2)
+        {
+            playerAni.Play(ATK3);
+            StartCoroutine(ComboAtk());
+            comboStep = 3;
+        }
+        else if (comboStep == 3)
+        {
+            playerAni.Play(ATK4);
+            StartCoroutine(IsAtk());
+            comboStep = 0;
+        }
+    }
+
+    private IEnumerator ComboAtk()
+    {
+        isAtacking = true;
+        yield return new WaitForSeconds(timeAtk);
+        isAtacking = false;
+
+        if (comboPossible || isHolding) Atk();
+        else comboStep = 0;
+
+        comboPossible = false;
+    }
+
+    private IEnumerator IsAtk()
+    {
+        isAtacking = true;
+        yield return new WaitForSeconds(timeAtk + 0.15f);
+        isAtacking = false;
+
+        comboPossible = false;
+
+        if (isHolding)
+        {
+            BtnAtk();
+        }
+    }
 
     // create attack function for button atk
     public void Attack()
