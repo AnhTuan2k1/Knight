@@ -6,7 +6,8 @@ using UnityEngine;
 public class RotateCamera : MonoBehaviour
 {
     [SerializeField] private DynamicJoystick joystick;
-    [SerializeField] private float speed = 5;
+    [SerializeField] private float horizontalSpeed = 5;
+    [SerializeField] private float verticalSpeed = 3;
     //[SerializeField] private Vector3 startPoint;
     //[SerializeField] private Vector3 endPoint;
     //[SerializeField] private float dragDiistance;
@@ -18,18 +19,18 @@ public class RotateCamera : MonoBehaviour
 
     void Update()
     {
-        float horizontal = joystick.Horizontal * speed;
-        //float vertical = joystick.Vertical;
+        float horizontal = joystick.Horizontal;
+        float vertical = joystick.Vertical;
 
-        if (horizontal != 0 /*|| vertical != 0*/)
+        if (Mathf.Abs(vertical) > 0.85)
         {
-            //float x = transform.rotation.y + vertical;
-            //if (x > 5 || x < 175)
-            //{
-            //    transform.Rotate(new Vector3(1, 0, 0), x, Space.World);
-            //}
-            transform.Rotate(new Vector3(0, 1, 0), transform.rotation.x +
-                horizontal, Space.World);
+            transform.Rotate(new Vector3(1, 0, 0), 
+                -vertical * verticalSpeed, Space.Self);
+        }
+        else if (Mathf.Abs(horizontal) > 0.5)
+        {
+            transform.Rotate(new Vector3(0, 1, 0),
+                horizontal * horizontalSpeed, Space.World);
         }
 
         //if(Input.touchCount > 0)
