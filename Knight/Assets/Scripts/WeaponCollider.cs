@@ -5,11 +5,11 @@ using UnityEngine;
 public class WeaponCollider : MonoBehaviour
 {
     [SerializeField] private float damage;
-    private MeshCollider meshCollider;
+    [SerializeField] private MeshCollider meshCollider;
 
     private void Start()
     {
-        meshCollider = GetComponent<MeshCollider>();
+        damage = 150;
         meshCollider.enabled = false;
     }
 
@@ -20,7 +20,10 @@ public class WeaponCollider : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             //print("enemy collider");
-            other.gameObject.GetComponent<Enemy>().TakeDamage(damage, gameObject);
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            enemy ??= other.gameObject.GetComponentInParent<Enemy>();
+
+            enemy.TakeDamage(damage, gameObject);
         }
     }
 

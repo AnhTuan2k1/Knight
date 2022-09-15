@@ -37,7 +37,7 @@ public class EnemyAi : MonoBehaviour
         attackRange = enemy.AttackRange();
         originPosition = enemyTransform.position;
 
-        StartCoroutine(InactiveAfter(3));
+        StartCoroutine(InactiveAfter(1));
     }
 
     void Update()
@@ -91,7 +91,7 @@ public class EnemyAi : MonoBehaviour
     {
         if(!patrolingPointSet) SearchWalkPoint();
 
-        enemy.MoveAni();
+        enemy.Move();
         if (patrolingPointSet)
             navMeshAgent.SetDestination(patrolingPoint);
 
@@ -105,7 +105,7 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
-        enemy.MoveAni();
+        enemy.Move();
         navMeshAgent.SetDestination(player.position);
     }
 
@@ -120,7 +120,8 @@ public class EnemyAi : MonoBehaviour
         yield return new WaitForSeconds(1);
         enemy.InvisibleAlert();
 
-        enemy.AttackAni();                                    // attack
+        enemyTransform.LookAt(player);
+        enemy.Attack();                                    // attack
         alreadyAttacked = true;
         yield return new WaitForSeconds(1);
 

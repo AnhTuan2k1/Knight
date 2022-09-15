@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.AI;
 using TMPro;
+using System;
 
 public abstract class Enemy : MonoBehaviour
 {
@@ -17,10 +18,9 @@ public abstract class Enemy : MonoBehaviour
     /// </summary>
     /// <returns></returns>
     public virtual float TimeBetweenAttacks() => 5;
-    public abstract void AttackAni();
-    public abstract void MoveAni();
+    public abstract void Attack(int attackLevel = 1);
+    public abstract void Move();
     public abstract void TakeDamage(float damage, GameObject obj);
-    public abstract void Healing(float healthPoint);
     public void UpdateHealth(float fraction) => healthBar.fillAmount = fraction;
     public void VisibleAlert() => AlertBar.text = "!";
     public void InvisibleAlert() => AlertBar.text = null;
