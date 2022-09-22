@@ -7,7 +7,7 @@ public class RotateCamera : MonoBehaviour
 {
     [SerializeField] private DynamicJoystick joystick;
     [SerializeField] private float horizontalSpeed = 5;
-    [SerializeField] private float verticalSpeed = 3;
+    [SerializeField] private float verticalSpeed = 5;
     //[SerializeField] private Vector3 startPoint;
     //[SerializeField] private Vector3 endPoint;
     //[SerializeField] private float dragDiistance;

@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
         direction = new Vector3(horizontal, 0, vertical);
         bool isWalking = animator.GetBool(isWalkingHash);
-       
+
         if (direction.magnitude > 0.1f)
         {
             // adjust movement vector follow camera's direction         
@@ -60,9 +60,15 @@ public class PlayerMovement : MonoBehaviour
             if (isRunning) controller.Move(direction * speedRunning * Time.deltaTime);
             //else if(isAttacking) controller.Move(direction * speedAttacking * Time.deltaTime);
             else controller.Move(direction * speed * Time.deltaTime);
-            transform.rotation = Quaternion.LookRotation(direction);
 
             if (!isWalking) animator.SetBool(isWalkingHash, true);
+
+            //rotate player to direction
+            int shot = animator.GetCurrentAnimatorStateInfo(0).shortNameHash;
+            if (shot == Animator.StringToHash("Firing Rifle Idle")
+                || shot == Animator.StringToHash("Firing Rifle Idle 0"))
+                return;
+            transform.rotation = Quaternion.LookRotation(direction);       
         }
         else if(isWalking) animator.SetBool(isWalkingHash, false);
 

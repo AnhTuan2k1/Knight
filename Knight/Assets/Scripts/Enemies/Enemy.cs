@@ -24,4 +24,9 @@ public abstract class Enemy : MonoBehaviour
     public void UpdateHealth(float fraction) => healthBar.fillAmount = fraction;
     public void VisibleAlert() => AlertBar.text = "!";
     public void InvisibleAlert() => AlertBar.text = null;
+    public virtual float realY() => 0;
+
+    public abstract void Attach(IBattleObserve battleObserve);
+    public abstract void Detach(IBattleObserve battleObserve);
+    public abstract void Notify();
 }

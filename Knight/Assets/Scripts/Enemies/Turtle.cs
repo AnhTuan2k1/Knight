@@ -16,6 +16,7 @@ public class Turtle : Enemy
     private static string die = "Die";
     bool isDie = false;
     float timeDie = 1.8f;
+    private IBattleObserve battleSystem;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class Turtle : Enemy
         turtleAni.Play(die);
 
         Destroy(gameObject, timeDie);
+        Notify();
     }
 
     void PlayAnimatorGetHit(GameObject obj)
@@ -75,5 +77,18 @@ public class Turtle : Enemy
     public override float AttackRange()
     {
         return 2;
+    }
+
+    public override void Attach(IBattleObserve battleObserve)
+    {
+        battleSystem = battleObserve;
+    }
+    public override void Detach(IBattleObserve battleObserve)
+    {
+        battleSystem = null;
+    }
+    public override void Notify()
+    {
+        if (battleSystem != null) battleSystem.Update(this);
     }
 }

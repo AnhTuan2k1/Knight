@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class WeaponCollider : MonoBehaviour
 {
-    [SerializeField] private float damage;
+    [SerializeField] private float damage = 200;
     [SerializeField] private MeshCollider meshCollider;
 
     private void Start()
     {
-        damage = 150;
         meshCollider.enabled = false;
     }
 

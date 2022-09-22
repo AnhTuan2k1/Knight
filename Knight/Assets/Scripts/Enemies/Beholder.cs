@@ -14,10 +14,11 @@ public class Beholder : Enemy
     private static string die = "Die";
     private static string attack = "Attack01";
     private static string walk = "WalkFWD";
-    private float bulletSpeed = 10;
+    //private float bulletSpeed = 10;
 
     bool isDie = false;
     float timeDie = 1.8f;
+    private IBattleObserve battleSystem;
 
     private void Start()
     {
@@ -27,10 +28,7 @@ public class Beholder : Enemy
     public override void Attack(int attackLevel = 1)
     {
         if (isDie) return;
-        Bullet bullet = Instantiate(bulletPrefab, attackPoint.position, attackPoint.rotation);
-        bullet.GetComponent<Transform>().Rotate(new Vector3(1, 0, 0), -90, Space.Self);
-
-        bullet.GetComponent<Rigidbody>().velocity = attackPoint.forward * bulletSpeed;
+        bulletPrefab.Spawn(attackPoint.position, attackPoint.rotation, attackPoint.forward);
 
         beholderAni.Play(attack);
     }
@@ -61,6 +59,7 @@ public class Beholder : Enemy
         Invoke(nameof(PauseAni), 0.7f);
 
         Destroy(gameObject, timeDie);
+        Notify();
     }
 
     private void PauseAni()
@@ -78,4 +77,22 @@ public class Beholder : Enemy
         return 20;
     }
 
+    public override float realY()
+    {
+        return 1.4f;
+    }
+
+
+    public override void Attach(IBattleObserve battleObserve)
+    {
+        battleSystem = battleObserve;
+    }
+    public override void Detach(IBattleObserve battleObserve)
+    {
+        battleSystem = null;
+    }
+    public override void Notify()
+    {
+        if (battleSystem != null) battleSystem.Update(this);
+    }
 }
