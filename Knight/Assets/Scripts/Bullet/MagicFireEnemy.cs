@@ -5,7 +5,7 @@ using UnityEngine;
 public class MagicFireEnemy : Bullet
 {
     float damage = 100;
-    public float bulletSpeed = 20;
+    private float bulletSpeed = 10;
     
     private void OnTriggerEnter(Collider other)
     {

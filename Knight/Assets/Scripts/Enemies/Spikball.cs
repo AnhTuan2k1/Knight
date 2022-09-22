@@ -8,7 +8,7 @@ public class Spikball : Enemy
     [SerializeField] private Transform attackPoint;
     [SerializeField] private Bullet bulletPrefab;
     private const float maxHealth = 250;
-    private float bulletSpeed = 10;
+    private float bulletSpeed = 20;
     bool isDie = false;
     private IBattleObserve battleSystem;
 
