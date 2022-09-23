@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] private PlayerShooting playerShooting;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float speedRunning = 6f;
     //[SerializeField] private float speedAttacking = 0.1f;
@@ -64,10 +65,11 @@ public class PlayerMovement : MonoBehaviour
             if (!isWalking) animator.SetBool(isWalkingHash, true);
 
             //rotate player to direction
-            int shot = animator.GetCurrentAnimatorStateInfo(0).shortNameHash;
-            if (shot == Animator.StringToHash("Firing Rifle Idle")
-                || shot == Animator.StringToHash("Firing Rifle Idle 0"))
-                return;
+            if (playerShooting.alreadyAttacked) return;
+            //int shot = animator.GetCurrentAnimatorStateInfo(0).shortNameHash;
+            //if (shot == Animator.StringToHash("Firing Rifle Idle")
+            //    || shot == Animator.StringToHash("Firing Rifle Idle 0"))
+            //    return;
             transform.rotation = Quaternion.LookRotation(direction);       
         }
         else if(isWalking) animator.SetBool(isWalkingHash, false);

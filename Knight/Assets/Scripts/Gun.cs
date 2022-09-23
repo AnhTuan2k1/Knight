@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
             //StartCoroutine(ResetRotation());
         }
 
-
+        
         // start shooting
         bulletPrefab.Spawn(attackPoint.position, attackPoint.rotation, attackPoint.forward);
 

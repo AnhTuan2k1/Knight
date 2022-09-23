@@ -6,9 +6,9 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField] private Animator playerAni;
-    [SerializeField] private Gun[] guns;
+    [SerializeField] private Gun Gun;
     [SerializeField] bool isHolding = false;
-    [SerializeField] bool alreadyAttacked = false;
+    [SerializeField] public bool alreadyAttacked = false;
     [SerializeField] bool isShotting1 = false;
     [SerializeField] bool isShotting2 = false;
     [SerializeField] float timeAtk = 0.5f;
@@ -62,7 +62,7 @@ public class PlayerShooting : MonoBehaviour
 
         // start shooting
         AdjustPosition(enemy);
-        guns[0].Shoot(enemy != null ? enemy.transform : null);
+        Gun.Shoot(enemy != null ? enemy.transform : null);
     }
 
     private void ResetAttack()
@@ -108,5 +108,10 @@ public class PlayerShooting : MonoBehaviour
             BtnAtk();
             yield return new WaitForSeconds(timeAtk);
         }
+    }
+
+    public void SetGun(Gun gun)
+    {
+        Gun = gun;
     }
 }
