@@ -24,13 +24,16 @@ public class PlayerSetting : MonoBehaviour
 {
     [SerializeField] private MyScene scene;
     [SerializeField] private int swordIndex = 0;
-    [SerializeField] private GameObject[] Swords;
+    [SerializeField] private Sword[] Swords;
     [SerializeField] private int gunIndex = 0;
     [SerializeField] private Gun[] Guns;
     [SerializeField] private PlayerShooting PlayerShooting;
+    [SerializeField] private PlayerAttack PlayerAttack;
+    [SerializeField] private Weapon DropedWeapon;
+
     bool isMeleeWeapon = true;
 
-    public Transform player;
+    public Transform femaleTransform;
     public GameObject btnAttack;
     public GameObject btnJump;
     public GameObject btnMove;
@@ -44,8 +47,8 @@ public class PlayerSetting : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(player);
-        SwitchScene();
+        DontDestroyOnLoad(transform.parent);
+        SwitchScene(MyScene.DockThing);
         SetWeapon(true, ((int)MySword.OHS06));
         //virtualCamera.enabled = false;
         //canvasInput.enabled = false;
@@ -57,11 +60,13 @@ public class PlayerSetting : MonoBehaviour
         //player.rotation.eulerAngles = quaternion;
     }
 
-    private void SwitchScene()
+    private void SwitchScene(MyScene scene = MyScene.Shop)
     {
         switch (scene)
         {
             case MyScene.Shop:
+                GameObject.FindWithTag("Player").transform.position
+                    = new Vector3(959.41f, 748.53f, -781.17f);
                 btnAttack.SetActive(false);
                 btnJump.SetActive(false);
                 btnMove.SetActive(true);
@@ -88,7 +93,8 @@ public class PlayerSetting : MonoBehaviour
                 canvasPlayerHeath.SetActive(true);              
                 return;
             case MyScene.LoadScene:
-                return;
+                break;
+    
         }
     }
 
@@ -96,13 +102,13 @@ public class PlayerSetting : MonoBehaviour
     {
         scene = (MyScene)sceneIndex;
         SceneManager.LoadSceneAsync(sceneIndex);
-        SwitchScene();
+        SwitchScene(scene);
     }
 
     public void SetScene(MyScene scene)
     {
         this.scene = scene;
-        SwitchScene();
+        SwitchScene(scene);
     }
 
     public void BtnSwapWeapon()
@@ -110,24 +116,49 @@ public class PlayerSetting : MonoBehaviour
         isMeleeWeapon = !isMeleeWeapon;
 
         btnAttack.SetActive(isMeleeWeapon);
-        Swords[swordIndex].SetActive(isMeleeWeapon);
+        Swords[swordIndex].gameObject.SetActive(isMeleeWeapon);
 
         btnShooting.SetActive(!isMeleeWeapon);
         Guns[gunIndex].gameObject.SetActive(!isMeleeWeapon);
 
-        if (!isMeleeWeapon) PlayerShooting.SetGun(Guns[gunIndex]);
+        if (isMeleeWeapon) PlayerAttack.SetSword(Swords[swordIndex]);
+        else PlayerShooting.SetGun(Guns[gunIndex]);
+
     }
 
-    private void SetWeapon(bool isMelee, int weaponIndex)
+    public void SetWeapon(bool isMelee, int weaponIndex, bool isInstantiate = false)
     {
         if (isMeleeWeapon && !isMelee) BtnSwapWeapon();
 
-        if (isMeleeWeapon)
+        // drop weapon
+        if(isInstantiate)
         {
-            Swords[swordIndex].SetActive(false);
+            Vector3 position = new Vector3(femaleTransform.position.x,
+                femaleTransform.position.y + 0.3f, femaleTransform.position.z);
+
+            Quaternion rotation = new Quaternion(femaleTransform.rotation.x,
+                femaleTransform.rotation.y, femaleTransform.rotation.z, femaleTransform.rotation.w);
+
+            if (isMelee)
+            {
+                DropedWeapon = Instantiate(Swords[swordIndex],position, rotation);
+            }
+            else
+            {
+                DropedWeapon = Instantiate(Guns[gunIndex], position, rotation);
+            }
+        }
+
+
+        //change weapon
+        if (isMeleeWeapon)
+        { 
+            Swords[swordIndex].gameObject.SetActive(false);
 
             swordIndex = weaponIndex;
-            Swords[swordIndex].SetActive(true);
+            Swords[swordIndex].gameObject.SetActive(true);
+
+            PlayerAttack.SetSword(Swords[swordIndex]);
         }
         else
         {
@@ -138,5 +169,11 @@ public class PlayerSetting : MonoBehaviour
 
             PlayerShooting.SetGun(Guns[gunIndex]);
         }
+    }
+
+    public int getWeapon(bool isMelee)
+    {
+        if (isMelee) return swordIndex;
+        else return gunIndex;
     }
 }

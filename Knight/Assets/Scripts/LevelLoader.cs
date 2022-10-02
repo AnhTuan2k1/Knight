@@ -33,14 +33,19 @@ public class LevelLoader : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         loadingScreen.SetActive(true);
 
-
+        operation.completed += Operation_completed;
         while (!operation.isDone)
         {
             slider.value = operation.progress;
             textProgress.text = operation.progress * 100f + "%";
-
-            if (setting != null) setting.SetScene((MyScene)sceneIndex);
+            
             yield return null;
         }
+    }
+
+    private void Operation_completed(AsyncOperation obj)
+    {
+        obj.completed -= Operation_completed;
+        if (setting != null) setting.SetScene((MyScene)1);
     }
 }

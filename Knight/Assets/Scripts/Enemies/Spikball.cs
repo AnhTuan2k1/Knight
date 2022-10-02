@@ -58,7 +58,7 @@ public class Spikball : Enemy
 
     public override float AttackRange()
     {
-        return 20;
+        return 12;
     }
 
     public override void Attach(IBattleObserve battleObserve)

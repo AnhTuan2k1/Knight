@@ -62,7 +62,8 @@ public class PlayerShooting : MonoBehaviour
 
         // start shooting
         AdjustPosition(enemy);
-        Gun.Shoot(enemy != null ? enemy.transform : null);
+        Gun.Shoot(enemy != null ? enemy.transform : null,
+            enemy != null ? enemy.realY() : 0);
     }
 
     private void ResetAttack()

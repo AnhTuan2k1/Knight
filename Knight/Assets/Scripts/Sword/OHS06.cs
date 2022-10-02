@@ -1,11 +1,16 @@
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
-public class WeaponCollider : MonoBehaviour
+class OHS06 : Sword
 {
     [SerializeField] private float damage = 200;
     [SerializeField] private MeshCollider meshCollider;
+    [SerializeField] float timeAtk = 0.5f;
 
     private void Start()
     {
@@ -36,13 +41,29 @@ public class WeaponCollider : MonoBehaviour
     //    }
     //}
 
-    public void StartAttack()
+    public override void StartAttack()
     {
         meshCollider.enabled = true;
     }
 
-    public void EndAttack()
+    public override void EndAttack()
     {
         meshCollider.enabled = false;
     }
+
+    public override float TimeAttack()
+    {
+        return timeAtk;
+    }
+
+    public override int GetWeapon()
+    {
+        return (int)MySword.OHS06;
+    }
+
+    public override bool IsMeleeWeapon()
+    {
+        return true;
+    }
 }
+

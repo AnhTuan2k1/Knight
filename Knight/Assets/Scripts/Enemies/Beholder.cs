@@ -74,7 +74,7 @@ public class Beholder : Enemy
 
     public override float AttackRange()
     {
-        return 20;
+        return 12;
     }
 
     public override float realY()

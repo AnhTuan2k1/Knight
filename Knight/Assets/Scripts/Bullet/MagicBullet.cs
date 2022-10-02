@@ -19,7 +19,7 @@ public class MagicBullet : Bullet
     }
 
     public override void Spawn(Vector3 position, Quaternion rotation, Vector3 forward)
-    {
+    {      
         Bullet bullet = Instantiate(this, position, rotation);
         bullet.GetComponent<Transform>().Rotate(new Vector3(1, 0, 0), -90, Space.Self);
 

@@ -33,6 +33,11 @@ public class BattleSystem : MonoBehaviour, IBattleObserve {
 
     private void SpawnNewEnemyWave()
     {
+        //Enemy w = Instantiate(flyableEnemies[1], flyablePosition[2], true);
+        //w.Attach(this);
+        //currentEnemies.Add(w);
+        //return;
+
         int flyableEnemyNumber = flyableEnemies.Length;
         int walkableEnemyNumber = walkableEnemies.Length;
 

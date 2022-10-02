@@ -5,12 +5,12 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Animator playerAni;
-    [SerializeField] private WeaponCollider weaponCollider;
+    [SerializeField] private Sword sword;
     [SerializeField] bool isHolding = false;
     [SerializeField] bool comboPossible = false;
     [SerializeField] bool isAtacking = false;
     [SerializeField] int comboStep = 0;
-    [SerializeField] float timeAtk = 0.5f;
+    [SerializeField] float timeAtk = 0;
     int[] checkUnityError = { 0, 0, 0, 0 };
 
     const string ATK1 = "Attack01_SwordAndShiled";
@@ -170,12 +170,17 @@ public class PlayerAttack : MonoBehaviour
 
     public void StartAttack()
     {
-        weaponCollider.StartAttack();
+        sword.StartAttack();
     }
 
     public void EndAttack()
     {
-        weaponCollider.EndAttack();
+        sword.EndAttack();
     }
 
+    public void SetSword(Sword sword)
+    {
+        this.sword = sword;
+        timeAtk = sword.TimeAttack();
+    }
 }
