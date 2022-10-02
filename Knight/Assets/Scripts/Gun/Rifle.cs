@@ -43,5 +43,10 @@ class Rifle : Gun
         //start shooting
         bulletPrefab.Spawn(attackPoint.position, attackPoint.rotation, attackPoint.forward);
     }
+
+    public override float TimeAttack()
+    {
+        return 0.3f;
+    }
 }
 

@@ -90,7 +90,7 @@ public class PlayerSetting : MonoBehaviour
                 btnShooting.SetActive(!isMeleeWeapon);
                 btnSwapWeapon.SetActive(true);
                 virtualCamera.SetActive(true);
-                canvasPlayerHeath.SetActive(true);              
+                canvasPlayerHeath.SetActive(true);
                 return;
             case MyScene.LoadScene:
                 break;

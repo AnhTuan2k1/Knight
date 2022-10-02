@@ -7,4 +7,5 @@ public abstract class Gun : Weapon
     [SerializeField] protected Transform attackPoint;
 
     public abstract void Shoot(Transform target = null, float AdjustHeight = 0);
+    public virtual float TimeAttack() => 0.5f;
 }

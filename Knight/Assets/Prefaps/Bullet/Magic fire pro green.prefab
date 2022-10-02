@@ -4774,7 +4774,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 20e729147a4dad247abfc2305c3dd963, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9599,7 +9598,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 14fab0de6c54324468738e7b38a88207, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9667,7 +9665,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4535912075057512
 Transform:
   m_ObjectHideFlags: 0
@@ -14424,7 +14422,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 2e69c8c236ea65447a07e24d8cbed40b, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14486,9 +14483,9 @@ GameObject:
   - component: {fileID: 4378435534538936}
   - component: {fileID: 198198661817966188}
   - component: {fileID: 199569250843235242}
-  - component: {fileID: 380700038770869014}
-  - component: {fileID: -5329345414183649701}
-  - component: {fileID: -979233926030145910}
+  - component: {fileID: 6702602967089261966}
+  - component: {fileID: 4269540027012003528}
+  - component: {fileID: 4299215099691996695}
   m_Layer: 0
   m_Name: Magic fire pro green
   m_TagString: Untagged
@@ -19256,7 +19253,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 14fab0de6c54324468738e7b38a88207, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19307,7 +19303,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!54 &380700038770869014
+--- !u!54 &6702602967089261966
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19323,7 +19319,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &-5329345414183649701
+--- !u!135 &4269540027012003528
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -19336,7 +19332,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.15
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-979233926030145910
+--- !u!114 &4299215099691996695
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -24122,7 +24118,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 14fab0de6c54324468738e7b38a88207, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -114,5 +114,6 @@ public class PlayerShooting : MonoBehaviour
     public void SetGun(Gun gun)
     {
         Gun = gun;
+        timeAtk = gun.TimeAttack();
     }
 }

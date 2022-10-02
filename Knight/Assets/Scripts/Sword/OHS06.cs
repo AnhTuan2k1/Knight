@@ -11,6 +11,7 @@ class OHS06 : Sword
     [SerializeField] private float damage = 200;
     [SerializeField] private MeshCollider meshCollider;
     [SerializeField] float timeAtk = 0.5f;
+    [SerializeField] GameObject swordTrail;
 
     private void Start()
     {
@@ -44,11 +45,13 @@ class OHS06 : Sword
     public override void StartAttack()
     {
         meshCollider.enabled = true;
+        swordTrail.SetActive(true);
     }
 
     public override void EndAttack()
     {
         meshCollider.enabled = false;
+        swordTrail.SetActive(false);
     }
 
     public override float TimeAttack()

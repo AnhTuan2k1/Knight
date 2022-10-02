@@ -6,6 +6,7 @@ public class MagicBullet : Bullet
 {
     public float damage = 50;
     public float bulletSpeed = 20;
+    public GameObject burstObj;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,6 +16,18 @@ public class MagicBullet : Bullet
             enemy ??= other.gameObject.GetComponentInParent<Enemy>();
 
             enemy.TakeDamage(damage, gameObject);
+
+            Instantiate(burstObj,
+                new Vector3(transform.position.x, transform.position.y, transform.position.z),
+                new Quaternion(0, 0, 0, transform.rotation.w));
+            Destroy(gameObject);
+        }
+        else if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            Instantiate(burstObj,
+                new Vector3(transform.position.x, transform.position.y, transform.position.z),
+                new Quaternion(0, 0, 0, transform.rotation.w));
+            Destroy(gameObject);
         }
     }
 

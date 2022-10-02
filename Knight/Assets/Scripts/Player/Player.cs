@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float currentHealth;
     [SerializeField] private Image healthBar;
     [SerializeField] private Animator playerAni;
+    [SerializeField] private PlayerAttack playerAttack;
 
     private const float maxHealth = 1000;
     private static string getHit = "GetHit01_SwordAndShield";
@@ -45,5 +46,6 @@ public class Player : MonoBehaviour
     void PlayAnimatorGetHit()
     {
         playerAni.Play(getHit);
+        playerAttack.EndAttack();
     }
 }

@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "j759ts85ea8tjvi7",
         "name": "com.DefaultCompany.Knight",
-        "processId": 19672,
+        "processId": 23579,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -11,157 +11,43 @@
         {
             "deviceId": "j759ts85ea8tjvi7",
             "name": "com.DefaultCompany.Knight",
-            "processId": 14279,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 12969,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 18388,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 22427,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 19902,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 21011,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 23312,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 29732,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 15781,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 16796,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 12479,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 14072,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 22454,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 28405,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 31761,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 30102,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 21391,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 22386,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 29011,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 29949,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 26983,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
-            "processId": 28251,
-            "exited": false
-        },
-        {
-            "deviceId": "j759ts85ea8tjvi7",
-            "name": "com.DefaultCompany.Knight",
             "processId": 26269,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "j759ts85ea8tjvi7",
             "name": "com.DefaultCompany.Knight",
             "processId": 21381,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "j759ts85ea8tjvi7",
             "name": "com.DefaultCompany.Knight",
             "processId": 18768,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "j759ts85ea8tjvi7",
             "name": "com.DefaultCompany.Knight",
             "processId": 19672,
+            "exited": true
+        },
+        {
+            "deviceId": "j759ts85ea8tjvi7",
+            "name": "com.android.settings",
+            "processId": 21474,
+            "exited": false
+        },
+        {
+            "deviceId": "j759ts85ea8tjvi7",
+            "name": "com.DefaultCompany.Knight",
+            "processId": 22226,
+            "exited": false
+        },
+        {
+            "deviceId": "j759ts85ea8tjvi7",
+            "name": "com.DefaultCompany.Knight",
+            "processId": 23579,
             "exited": false
         }
     ],

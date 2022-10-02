@@ -275,7 +275,7 @@ MonoBehaviour:
   AlertBar: {fileID: 4645125457278176890}
   beholderAni: {fileID: 6647455925154953185}
   attackPoint: {fileID: 1637046415}
-  bulletPrefab: {fileID: -979233926030145910, guid: 3d35e81bdc5955041be098ef22e82a3b,
+  bulletPrefab: {fileID: 4299215099691996695, guid: 3d35e81bdc5955041be098ef22e82a3b,
     type: 3}
 --- !u!114 &8694482135467668351
 MonoBehaviour:
