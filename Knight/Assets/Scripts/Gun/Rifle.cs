@@ -22,6 +22,8 @@ class Rifle : Gun
 
     public override void Shoot(Transform target = null, float adjustHeight = 0)
     {
+        FindObjectOfType<AudioManager>().Play("RifleSound", transform.position);
+
         //rotate gun to enemy        
         if (target != null)
         {

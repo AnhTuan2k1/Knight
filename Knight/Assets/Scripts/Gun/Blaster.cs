@@ -26,6 +26,7 @@ class Blaster : Gun
 
     public override void Shoot(Transform target = null, float adjustHeight = 0)
     {
+        FindObjectOfType<AudioManager>().Play("BlasterSound", transform.position);
         //rotate gun to enemy        
         if (target != null)
         {

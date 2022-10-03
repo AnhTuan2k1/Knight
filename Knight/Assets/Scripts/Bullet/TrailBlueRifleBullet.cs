@@ -29,6 +29,8 @@ class TrailBlueRifleBullet : Bullet
             Instantiate(burstObj,
                 new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 new Quaternion(0, 0, 0, transform.rotation.w));
+
+            FindObjectOfType<AudioManager>().Play("ElectricAffectSound", transform.position);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
@@ -41,6 +43,8 @@ class TrailBlueRifleBullet : Bullet
             Instantiate(burstObj,
                 new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 new Quaternion(0, 0, 0, transform.rotation.w));
+
+            FindObjectOfType<AudioManager>().Play("ElectricAffectSound", transform.position);
         }
     }
 

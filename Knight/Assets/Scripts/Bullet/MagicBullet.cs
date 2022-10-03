@@ -21,6 +21,8 @@ public class MagicBullet : Bullet
                 new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 new Quaternion(0, 0, 0, transform.rotation.w));
             Destroy(gameObject);
+
+            FindObjectOfType<AudioManager>().Play("BulletExplosion", transform.position);
         }
         else if (other.gameObject.layer == LayerMask.NameToLayer("Terrain"))
         {
@@ -28,6 +30,8 @@ public class MagicBullet : Bullet
                 new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 new Quaternion(0, 0, 0, transform.rotation.w));
             Destroy(gameObject);
+
+            FindObjectOfType<AudioManager>().Play("BulletExplosion", transform.position);
         }
     }
 

@@ -77,6 +77,12 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Weapon
       objectReference: {fileID: 0}
+    - target: {fileID: 7613162148939886746, guid: e6ed5d494f686c9498e1a46648cbea26,
+        type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 6874390473126645102, guid: af62289d0d22cb240a907e10831838a3,
+        type: 3}
     - target: {fileID: 7825252091007879800, guid: e6ed5d494f686c9498e1a46648cbea26,
         type: 3}
       propertyPath: m_LocalPosition.y
