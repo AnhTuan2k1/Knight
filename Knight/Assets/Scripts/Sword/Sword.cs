@@ -10,4 +10,5 @@ public abstract class Sword : Weapon
     public abstract void EndAttack();
     public abstract void StartAttack();
     public virtual float TimeAttack() => 0;
+    public abstract void ColliderEnabled(bool enabled);
 }

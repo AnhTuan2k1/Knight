@@ -13,6 +13,7 @@ public enum MyScene
 public enum MySword
 {
     OHS06,
+    Sword12Purple,
 }
 
 public enum MyGun
@@ -142,6 +143,7 @@ public class PlayerSetting : MonoBehaviour
             if (isMelee)
             {
                 DropedWeapon = Instantiate(Swords[swordIndex],position, rotation);
+                DropedWeapon.GetComponent<MeshCollider>().enabled = true;
             }
             else
             {

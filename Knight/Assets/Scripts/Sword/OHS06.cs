@@ -13,11 +13,6 @@ class OHS06 : Sword
     [SerializeField] float timeAtk = 0.5f;
     [SerializeField] GameObject swordTrail;
 
-    private void Start()
-    {
-        meshCollider.enabled = false;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         //print("weapon trigger");
@@ -67,6 +62,11 @@ class OHS06 : Sword
     public override bool IsMeleeWeapon()
     {
         return true;
+    }
+
+    public override void ColliderEnabled(bool enabled)
+    {
+        meshCollider.enabled = enabled;
     }
 }
 

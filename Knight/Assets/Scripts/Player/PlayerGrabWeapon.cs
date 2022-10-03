@@ -14,6 +14,8 @@ public class PlayerGrabWeapon : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon"))
         {
             Weapon grabableWeapon = other.GetComponent<Weapon>();
+            print("collider weapon ok");
+            print(grabableWeapon);
             if (grabableWeapon != null)
             {
                 isMeleeWeapon = grabableWeapon.IsMeleeWeapon();

@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerShooting playerShooting;
+    [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private float speed = 3f;
     [SerializeField] private float speedRunning = 6f;
     //[SerializeField] private float speedAttacking = 0.1f;
@@ -58,18 +59,21 @@ public class PlayerMovement : MonoBehaviour
             direction = Quaternion.AngleAxis(cam.transform.eulerAngles.y, Vector3.up) * direction;
 
             //float targetAngle = 
+
             if (isRunning) controller.Move(direction * speedRunning * Time.deltaTime);
             //else if(isAttacking) controller.Move(direction * speedAttacking * Time.deltaTime);
             else controller.Move(direction * speed * Time.deltaTime);
 
             if (!isWalking) animator.SetBool(isWalkingHash, true);
 
-            //rotate player to direction
+            
             if (playerShooting.alreadyAttacked) return;
             //int shot = animator.GetCurrentAnimatorStateInfo(0).shortNameHash;
             //if (shot == Animator.StringToHash("Firing Rifle Idle")
             //    || shot == Animator.StringToHash("Firing Rifle Idle 0"))
             //    return;
+
+            //rotate player to direction
             transform.rotation = Quaternion.LookRotation(direction);       
         }
         else if(isWalking) animator.SetBool(isWalkingHash, false);

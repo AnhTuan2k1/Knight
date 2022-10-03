@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "j759ts85ea8tjvi7",
         "name": "com.DefaultCompany.Knight",
-        "processId": 23579,
+        "processId": 29608,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -48,6 +48,18 @@
             "deviceId": "j759ts85ea8tjvi7",
             "name": "com.DefaultCompany.Knight",
             "processId": 23579,
+            "exited": false
+        },
+        {
+            "deviceId": "j759ts85ea8tjvi7",
+            "name": "com.DefaultCompany.Knight",
+            "processId": 28475,
+            "exited": false
+        },
+        {
+            "deviceId": "j759ts85ea8tjvi7",
+            "name": "com.DefaultCompany.Knight",
+            "processId": 29608,
             "exited": false
         }
     ],

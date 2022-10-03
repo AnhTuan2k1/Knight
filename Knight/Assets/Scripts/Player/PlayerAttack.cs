@@ -183,4 +183,6 @@ public class PlayerAttack : MonoBehaviour
         this.sword = sword;
         timeAtk = sword.TimeAttack();
     }
+
+    public bool IsAttacking() => isAtacking;
 }

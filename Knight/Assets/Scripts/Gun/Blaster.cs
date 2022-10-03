@@ -80,4 +80,9 @@ class Blaster : Gun
     //    transform.rotation = gunQuaternion;
     //    attackPoint.rotation = atkPointQuaternion;
     //}
+
+    public override float TimeAttack()
+    {
+        return 0.5f;
+    }
 }

@@ -28,7 +28,7 @@ public class PlayerShooting : MonoBehaviour
     {
         if (alreadyAttacked) return;
         alreadyAttacked = true;
-        Invoke(nameof(ResetAttack), timeAtk - 0.2f);
+        Invoke(nameof(ResetAttack), timeAtk);
 
 
         if (isShotting1)

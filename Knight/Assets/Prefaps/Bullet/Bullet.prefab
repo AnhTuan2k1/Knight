@@ -118,6 +118,9 @@ MonoBehaviour:
   lifeTime: 5
   damage: 200
   bulletSpeed: 50
+  lastVelocity: {x: 0, y: 0, z: 0}
+  rb: {fileID: 2326093635640689112}
+  burstObj: {fileID: 1306605793903958, guid: 9ce4142b18056ab4b813713b878856ca, type: 3}
 --- !u!136 &8194779963335556237
 CapsuleCollider:
   m_ObjectHideFlags: 0
