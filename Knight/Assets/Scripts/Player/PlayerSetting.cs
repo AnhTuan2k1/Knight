@@ -49,7 +49,7 @@ public class PlayerSetting : MonoBehaviour
     private void Start()
     {
         DontDestroyOnLoad(transform.parent);
-        SwitchScene(MyScene.DockThing);
+        SwitchScene(MyScene.Shop);
         SetWeapon(true, ((int)MySword.OHS06));
         //virtualCamera.enabled = false;
         //canvasInput.enabled = false;
@@ -129,7 +129,7 @@ public class PlayerSetting : MonoBehaviour
 
     public void SetWeapon(bool isMelee, int weaponIndex, bool isInstantiate = false)
     {
-        if (isMeleeWeapon && !isMelee) BtnSwapWeapon();
+        if (isMeleeWeapon != isMelee) BtnSwapWeapon();
 
         // drop weapon
         if(isInstantiate)
@@ -140,7 +140,7 @@ public class PlayerSetting : MonoBehaviour
             Quaternion rotation = new Quaternion(femaleTransform.rotation.x,
                 femaleTransform.rotation.y, femaleTransform.rotation.z, femaleTransform.rotation.w);
 
-            if (isMelee)
+            if (isMeleeWeapon)
             {
                 DropedWeapon = Instantiate(Swords[swordIndex],position, rotation);
                 DropedWeapon.GetComponent<MeshCollider>().enabled = true;

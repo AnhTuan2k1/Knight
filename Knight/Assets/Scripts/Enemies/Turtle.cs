@@ -79,6 +79,11 @@ public class Turtle : Enemy
         return 2;
     }
 
+    public override float realY()
+    {
+        return 0.2f;
+    }
+
     public override void Attach(IBattleObserve battleObserve)
     {
         battleSystem = battleObserve;
