@@ -16,9 +16,6 @@ public class LevelLoader : MonoBehaviour
 
     private void Start()
     {
-        setting = GameObject.FindWithTag("PlayerSetting")
-            .GetComponent<PlayerSetting>();
-
         LoadLevel(1);
     }
 
@@ -46,6 +43,5 @@ public class LevelLoader : MonoBehaviour
     private void Operation_completed(AsyncOperation obj)
     {
         obj.completed -= Operation_completed;
-        if (setting != null) setting.SetScene((MyScene)1);
     }
 }

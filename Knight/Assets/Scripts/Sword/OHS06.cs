@@ -38,7 +38,7 @@ class OHS06 : Sword
     //}
 
     public override void StartAttack()
-    {
+    {     
         meshCollider.enabled = true;
         swordTrail.SetActive(true);
     }

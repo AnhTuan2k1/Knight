@@ -37,7 +37,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Maybe", transform.position/*GameObject.FindWithTag("Player").transform.position*/);
+        Play("BossTheme", transform.position/*GameObject.FindWithTag("Player").transform.position*/);
     }
 
     public void Play(string name, Vector3 position)

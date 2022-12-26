@@ -73,7 +73,10 @@ public class PlayerShooting : MonoBehaviour
 
     Enemy NearEnemy()
     {
-        enemies = FindObjectOfType<BattleSystem>().currentEnemies;
+        BattleSystem battleSystem = FindObjectOfType<BattleSystem>();
+        if (battleSystem == null) return null;
+
+        enemies = battleSystem.currentEnemies;
         Enemy nearEnemy = null;
 
         if (enemies.Count > 1)

@@ -27,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (!isAtacking && comboStep == 0) 
         {
+            FindObjectOfType<AudioManager>().Play("SwordHit", transform.position);
             playerAni.Play(ATK1);
             StartCoroutine(ComboAtk());
             comboStep = 1;
@@ -42,12 +43,14 @@ public class PlayerAttack : MonoBehaviour
     {
         if (comboStep == 1)
         {
+            FindObjectOfType<AudioManager>().Play("SwordHit", transform.position);
             playerAni.Play(ATK2);
             StartCoroutine(ComboAtk());
             comboStep = 2;
         }
         else if (comboStep == 2)
         {
+            FindObjectOfType<AudioManager>().Play("SwordHit", transform.position);
             playerAni.Play(ATK3);
             StartCoroutine(ComboAtk());
             comboStep = 3;

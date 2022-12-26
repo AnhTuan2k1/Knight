@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public enum MyScene
 {
-    Shop, DockThing, LoadScene
+    Shop, DockThing, LoadScene, DemoShopScene, MainMenu
 }
 
 public enum MySword
@@ -34,6 +34,7 @@ public class PlayerSetting : MonoBehaviour
 
     bool isMeleeWeapon = true;
 
+    public MyScene initialScene = MyScene.DemoShopScene;
     public Transform femaleTransform;
     public GameObject btnAttack;
     public GameObject btnJump;
@@ -48,8 +49,9 @@ public class PlayerSetting : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(transform.parent);
-        SwitchScene(MyScene.Shop);
+        print(SceneManager.GetActiveScene().name);
+        SetScene(ConvertScene(SceneManager.GetActiveScene().name));
+        //DontDestroyOnLoad(transform.parent);
         SetWeapon(true, ((int)MySword.OHS06));
         //virtualCamera.enabled = false;
         //canvasInput.enabled = false;
@@ -61,8 +63,25 @@ public class PlayerSetting : MonoBehaviour
         //player.rotation.eulerAngles = quaternion;
     }
 
+    public static MyScene ConvertScene(string SceneName)
+    {
+        switch (SceneName)
+        {
+            case "Demo_Shop_Scene":
+                return MyScene.DemoShopScene;
+            case "Dock Thing":
+                return MyScene.DockThing;
+            case "MainMenu":
+            case "LoadScene":
+                return MyScene.MainMenu;
+            default:
+                return MyScene.MainMenu;
+        }
+    }
+
     private void SwitchScene(MyScene scene = MyScene.Shop)
     {
+        Time.timeScale = 1f;
         switch (scene)
         {
             case MyScene.Shop:
@@ -93,6 +112,22 @@ public class PlayerSetting : MonoBehaviour
                 virtualCamera.SetActive(true);
                 canvasPlayerHeath.SetActive(true);
                 return;
+            case MyScene.DemoShopScene:
+                GameObject.FindWithTag("Player").transform.position
+                    = new Vector3(0, 2, 0);
+                btnAttack.SetActive(true);
+                btnJump.SetActive(true);
+                btnMove.SetActive(true);
+                btnRotate.SetActive(true);
+                btnDash.SetActive(true);
+                btnShooting.SetActive(false);
+                btnSwapWeapon.SetActive(true);
+                virtualCamera.SetActive(true);
+                canvasPlayerHeath.SetActive(false);
+                //canvasInput.GetComponentsInChildren<GameObject>()[2]
+                //characterController.enabled = false;
+                return;
+            case MyScene.MainMenu:
             case MyScene.LoadScene:
                 break;
     

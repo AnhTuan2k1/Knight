@@ -9,11 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/ShopScene.unity
     guid: 71632698bf988bf4484f42fa9fc4a43d
   - enabled: 1
-    path: Assets/Scenes/Dock Thing.unity
-    guid: f4fc660ad7cf6eb4eb8cd6d109f7608e
+    path: Assets/Scenes/Dock Thing 1.unity
+    guid: 447b9afa2da8f8b419a02f971782305d
   - enabled: 1
     path: Assets/Scenes/LoadScene.unity
     guid: bcef891fed79cac4ca37120bd31b9b8c
+  - enabled: 1
+    path: Assets/Scenes/Demo_Shop_Scene.unity
+    guid: 1c6d75eaa80797041a20dd6a10c1f6d2
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 638620549dee40e48984aa5a26ff244c
+  - enabled: 1
+    path: Assets/Scenes/Dock Thing.unity
+    guid: f4fc660ad7cf6eb4eb8cd6d109f7608e
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 7e50bf786694d294c9306fcdc3c96df3,
       type: 2}

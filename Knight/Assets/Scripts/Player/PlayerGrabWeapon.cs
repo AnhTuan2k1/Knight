@@ -8,6 +8,7 @@ public class PlayerGrabWeapon : MonoBehaviour
     [SerializeField] private bool isMeleeWeapon;
     [SerializeField] private PlayerSetting playerSetting;
     [SerializeField] private GameObject btnGrabWeapon;
+    [SerializeField] private GameObject btnSwapWeapon;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +23,7 @@ public class PlayerGrabWeapon : MonoBehaviour
                 if (grabableWeapon.GetWeapon() != playerSetting.getWeapon(isMeleeWeapon))
                 {
                     btnGrabWeapon.SetActive(true);
+                    btnSwapWeapon.SetActive(false);
                     weapon = grabableWeapon;
                 }                  
             }           
@@ -34,6 +36,7 @@ public class PlayerGrabWeapon : MonoBehaviour
         if (other.gameObject.CompareTag("Weapon"))
         {
             btnGrabWeapon.SetActive(false);
+            btnSwapWeapon.SetActive(true);
             weapon = null;
         }
     }
@@ -44,6 +47,7 @@ public class PlayerGrabWeapon : MonoBehaviour
 
         playerSetting.SetWeapon(isMeleeWeapon, weapon.GetWeapon(), true);
         btnGrabWeapon.SetActive(false);
+        btnSwapWeapon.SetActive(true);
         Destroy(weapon.gameObject);
     }
 
